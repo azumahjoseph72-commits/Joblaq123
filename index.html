@@ -13,23 +13,22 @@ Learn ICT, Programming, Web Development, and Computer Skills.<br>
 Start your journey with LinkJoe ICT Academy today.
 </p>
     <div style="width:300px; margin:auto; padding:20px; border:1px solid #ccc; border-radius:10px; background-color:white; text-align:center;">
+ <h2>Login</h2>
+<div class="login-box">
+  
+  
 
-    <h2>Login</h2>
+  <input type="email" id="email" placeholder="Enter your email">
 
-    <input type="text" placeholder="Email or Phone Number"
-           style="width:90%; padding:10px; margin:10px 0;"><br>
+  <input type="password" id="password" placeholder="Enter your password">
 
-    <input type="password" placeholder="Password"
-           style="width:90%; padding:10px; margin:10px 0;"><br>
+  <button id="login">SIGN IN</button>
 
-    <button style="width:95%; padding:10px; background-color:#007BFF; color:white; border:none; border-radius:5px;">
-        Login
-    </button>
+  <button id="signup">CREATE ACCOUNT</button>
 
-    <p><a href="#">Forgot Password?</a></p>
-    <p>Don't have an account? <a href="#">Sign Up</a></p>
-
+  <p><a href="#">Forgot Password?</a></p>
 </div>
+
     <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
@@ -52,6 +51,31 @@ Start your journey with LinkJoe ICT Academy today.
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+        document.getElementById("signup").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Account created successfully!");
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+});
+
+document.getElementById("login").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Login successful!");
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+});
 </script>
 </body>
 </html>
