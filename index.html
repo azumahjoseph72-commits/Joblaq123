@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html>
 <head>
     <title>welcome Linkjoe</title>
@@ -61,8 +61,6 @@ const auth = getAuth(app);
     })
     .catch((error) => {
       alert(error.message);
-    
-});
 document.getElementById("login").addEventListener("click", () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -70,14 +68,12 @@ document.getElementById("login").addEventListener("click", () => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       alert("Login successful!");
-      // Redirect after login
       window.location.href = "home.html";
     })
     .catch((error) => {
       alert(error.message);
     });
 });
-
 </script>
 </body>
 </html>
