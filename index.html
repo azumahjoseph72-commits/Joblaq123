@@ -19,14 +19,10 @@ Start your journey with LinkJoe ICT Academy today.
   
 
   <input type="email" id="email" placeholder="Enter your email">
-
   <input type="password" id="password" placeholder="Enter your password">
-
-  <button id="login">SIGN IN</button>
-
-  <button id="signup">CREATE ACCOUNT</button>
-
-  <p><a href="#">Forgot Password?</a></p>
+ <button id="login">SIGN IN</button>
+<button id="signup">CREATE ACCOUNT</button>
+<p><a href="#">Forgot Password?</a></p>
 </div>
 
     <script type="module">
@@ -65,21 +61,23 @@ const auth = getAuth(app);
     })
     .catch((error) => {
       alert(error.message);
-    });
+    
 });
-
 document.getElementById("login").addEventListener("click", () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
   signInWithEmailAndPassword(auth, email, password)
-    const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    .then((userCredential) => {
+      alert("Login successful!");
+      // Redirect after login
+      window.location.href = "home.html";
     })
     .catch((error) => {
       alert(error.message);
     });
 });
+
 </script>
 </body>
 </html>
