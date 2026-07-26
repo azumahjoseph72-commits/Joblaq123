@@ -1,79 +1,34 @@
-`<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>welcome Linkjoe</title>
-</head>
-<body style="background-color:grey">
-    <footer>
-    <p>&copy; 2026 LinkJoe.edu. All Rights Reserved.</p>
-</footer>
-    <h1 style="">Welcome to LinkJoe ICT Academy</h1>
-    <p>
-Learn ICT, Programming, Web Development, and Computer Skills.<br>
-Start your journey with LinkJoe ICT Academy today.
-</p>
-    <div style="width:300px; margin:auto; padding:20px; border:1px solid #ccc; border-radius:10px; background-color:white; text-align:center;">
- <h2>Login</h2>
-<div class="login-box">
-  
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkJoe ICT Academy</title>
 
-  <input type="email" id="email" placeholder="Enter your email">
-  <input type="password" id="password" placeholder="Enter your password">
- <button id="login">SIGN IN</button>
-<button id="signup">CREATE ACCOUNT</button>
-<p><a href="#">Forgot Password?</a></p>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>LinkJoe ICT Academy</h1>
+
+<p>Welcome Back</p>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button id="login">Sign In</button>
+
+<button id="signup">Create Account</button>
+
+<p id="message"></p>
+
 </div>
 
-    <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+<script type="module" src="script.js"></script>
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "linkjoe-99100.firebaseapp.com",
-  projectId: "linkjoe-99100",
-  storageBucket: "linkjoe-99100.firebasestorage.app",
-  messagingSenderId: "106619627679",
-  appId: "1:106619627679:web:3f9c044eee381d11b41aaa",
-  measurementId: "G-4LDS8QHBMV"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-// Create Account
-document.getElementById("signup").addEventListener("click", () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Account created successfully!");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-});
-
-// Login
-document.getElementById("login").addEventListener("click", () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Login successful!");
-      window.location.href = "home.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-});
-    </script>
 </body>
 </html>
