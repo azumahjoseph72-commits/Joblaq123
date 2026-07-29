@@ -32,7 +32,7 @@ loginBtn.addEventListener("click", () => {
       window.location.href = "home.html";
     })
     .catch((error) => {
-      message.style.color = "red";
-      message.textContent = error.message;
-    });
+    message.style.color = "red";
+    message.textContent = error.code + " : " + error.message;
+});
 });
